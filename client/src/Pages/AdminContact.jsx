@@ -26,33 +26,33 @@ const AdminContact = () => {
       console.log(error);
       loading(false);
     }
-
-   
   };
 
   useEffect(() => {
     getContactData();
   }, []);
-  return contact && (
-    <>
-      <section>
-        <h1>Admin Contact Data</h1>
+  return (
+    contact && (
+      <>
+        <section>
+          <h1>Admin Contact Data</h1>
 
-        <div className="admin-users">
-          {contact?.map((curData, index) => {
-            return (
-              <div key={index}>
-                <p>{curData?.username}</p>
-                <p>{curData?.email}</p>
-                <p>{curData?.message}</p>
-                <button className="updateLink">Delete</button>
-              </div>
-            );
-          })}
-        </div>
-        <h1>Helo</h1>
-      </section>
-    </>
+          <div className="admin-users">
+            {contact?.map((curData, index) => {
+              return (
+                <div key={index}>
+                  <p>{curData?.username}</p>
+                  <p>{curData?.email}</p>
+                  <p>{curData?.message}</p>
+                  <button className="updateLink">Delete</button>
+                </div>
+              );
+            })}
+          </div>
+          <h1>Helo</h1>
+        </section>
+      </>
+    )
   );
 };
 
