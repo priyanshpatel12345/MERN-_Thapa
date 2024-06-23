@@ -4,7 +4,7 @@ const User = require("../models/user-model");
 // Get All the Data from Database
 //-------------------------
 
-const userAdmin = async (req, res) => {
+const userAdmin = async (req, res ,next) => {
   try {
     const users = await User.find({}, { password: 0 });
 
@@ -36,7 +36,7 @@ const getUserById = async (req, res) => {
 // Update User Id - Logic
 // ---------------------
 
-const updateUserById = async (req, res) => {
+const updateUserById = async (req, res ,next) => {
   try {
     const id = req.params.id;
     const updatedUserData = req.body;

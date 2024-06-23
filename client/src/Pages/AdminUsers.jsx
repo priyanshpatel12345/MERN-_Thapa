@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 function AdminUsers() {
   const { authorizationToken } = useAuth();
   const [users, setUser] = useState([]);
+  const [loading ,setLoading] = useState(false);
 
   const getAllUsersData = async () => {
+    setLoading(true);
     try {
       const response = await fetch("http://localhost:5000/admin/users", {
         method: "GET",
@@ -17,10 +19,12 @@ function AdminUsers() {
       });
 
       const data = await response.json();
+      console.log(data);
       setUser(data);
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   const deleteUser = async (id) => {
@@ -50,8 +54,11 @@ function AdminUsers() {
   useEffect(() => {
     getAllUsersData();
   }, []);
-
-  return (
+  if(loading){
+    return <div>Loading...</div>
+  }
+   
+  return users && (
     <>
       <section className="admin-users-section">
         <div className="container">
@@ -70,7 +77,7 @@ function AdminUsers() {
             </thead>
 
             <tbody>
-              {users.map((curUser, index) => (
+              {users?.map((curUser, index) => (
                 <tr key={index}>
                   <td>{curUser.username}</td>
                   <td>{curUser.email}</td>

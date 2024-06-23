@@ -1,6 +1,6 @@
 const Contact = require("../models/contact-model");
 
-const serviceAdmin = async (req, res) => {
+const serviceAdmin = async (req, res ,next) => {
   try {
     const Contacts = await Contact.find();
 
