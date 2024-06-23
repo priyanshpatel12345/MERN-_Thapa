@@ -27,11 +27,13 @@ const AdminContact = () => {
       loading(false);
     }
 
-    useEffect(() => {
-      getContactData();
-    }, []);
+   
   };
-  return (
+
+  useEffect(() => {
+    getContactData();
+  }, []);
+  return contact && (
     <>
       <section>
         <h1>Admin Contact Data</h1>
@@ -40,9 +42,9 @@ const AdminContact = () => {
           {contact?.map((curData, index) => {
             return (
               <div key={index}>
-                <p>{curData.username}</p>
-                <p>{curData.email}</p>
-                <p>{curData.message}</p>
+                <p>{curData?.username}</p>
+                <p>{curData?.email}</p>
+                <p>{curData?.message}</p>
                 <button className="updateLink">Delete</button>
               </div>
             );
