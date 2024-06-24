@@ -14,7 +14,7 @@ function Signup() {
 
   const navigate = useNavigate();
 
-  const { storeTokenInLS } = useAuth();
+  const { storeTokenInLS, API } = useAuth();
 
   // handle the data change event
   const handleInput = (e) => {
@@ -32,7 +32,7 @@ function Signup() {
     console.log(user);
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/register", {
+      const response = await fetch(`${API}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

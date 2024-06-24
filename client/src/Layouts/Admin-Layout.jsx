@@ -2,8 +2,20 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaUserLarge, FaHouseChimney } from "react-icons/fa6";
 import { MdContacts, MdMiscellaneousServices } from "react-icons/md";
+import { useAuth } from "../store/auth";
+import { Navigate } from "react-router-dom";
 
 function AdminLayout() {
+  const { user, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <h1>Loading... </h1>;
+  }
+
+  if (!user.isAdmin) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <>
       <header>

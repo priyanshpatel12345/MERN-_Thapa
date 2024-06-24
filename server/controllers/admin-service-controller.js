@@ -1,6 +1,6 @@
 const Contact = require("../models/contact-model");
 
-const serviceAdmin = async (req, res ,next) => {
+const serviceAdmin = async (req, res, next) => {
   try {
     const Contacts = await Contact.find();
 
@@ -14,4 +14,14 @@ const serviceAdmin = async (req, res ,next) => {
   }
 };
 
-module.exports = serviceAdmin;
+const deleteContactById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Contact.deleteOne({ _id: id });
+    res.status(200).json({ message: "Contact Delete SuccessFully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { serviceAdmin, deleteContactById };

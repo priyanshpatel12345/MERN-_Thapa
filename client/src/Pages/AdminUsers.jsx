@@ -4,14 +4,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function AdminUsers() {
-  const { authorizationToken } = useAuth();
+  const { authorizationToken, API } = useAuth();
   const [users, setUser] = useState([]);
-  const [loading ,setLoading] = useState(false);
 
   const getAllUsersData = async () => {
-    setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/admin/users", {
+      const response = await fetch(`${API}/admin/users`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -24,20 +22,16 @@ function AdminUsers() {
     } catch (error) {
       console.log(error);
     }
-    setLoading(false);
   };
 
   const deleteUser = async (id) => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/admin/users/delete/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: authorizationToken,
-          },
-        }
-      );
+      const response = await fetch(`${API}/admin/users/delete/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: authorizationToken,
+        },
+      });
       console.log(response);
       const data = await response.json();
       console.log(data);
@@ -54,11 +48,8 @@ function AdminUsers() {
   useEffect(() => {
     getAllUsersData();
   }, []);
-  if(loading){
-    return <div>Loading...</div>
-  }
-   
-  return users && (
+
+  return (
     <>
       <section className="admin-users-section">
         <div className="container">

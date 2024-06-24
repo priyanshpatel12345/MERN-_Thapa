@@ -3,13 +3,11 @@ import { useAuth } from "../store/auth";
 
 const AdminContact = () => {
   const [contact, setContact] = useState([]);
-  const { authorizationToken } = useAuth();
-  const [loading, setLoading] = useState(false);
+  const { authorizationToken, API } = useAuth();
 
   const getContactData = async () => {
-    setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/admin/contact", {
+      const response = await fetch(`${API}/admin/contact`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -24,7 +22,27 @@ const AdminContact = () => {
       }
     } catch (error) {
       console.log(error);
-      loading(false);
+    }
+  };
+
+  const deleteContact = async (id) => {
+    try {
+      const response = await fetch(`${API}/admin/contact/delete/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: authorizationToken,
+        },
+      });
+
+      const data = await response.json();
+
+      console.log("Delete Contact", data);
+
+      if (response.ok) {
+        getContactData();
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -32,27 +50,44 @@ const AdminContact = () => {
     getContactData();
   }, []);
   return (
-    contact && (
-      <>
-        <section>
+    <>
+      <section className="admin-user-section">
+        <div className="container">
           <h1>Admin Contact Data</h1>
+        </div>
 
-          <div className="admin-users">
-            {contact?.map((curData, index) => {
-              return (
-                <div key={index}>
-                  <p>{curData?.username}</p>
-                  <p>{curData?.email}</p>
-                  <p>{curData?.message}</p>
-                  <button className="updateLink">Delete</button>
-                </div>
-              );
-            })}
-          </div>
-          <h1>Helo</h1>
-        </section>
-      </>
-    )
+        <div className="container admin-user">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {contact?.map((curContact, index) => (
+                <tr key={index}>
+                  <td>{curContact.username}</td>
+                  <td>{curContact.email}</td>
+                  <td>{curContact.message}</td>
+                  <td>
+                    <button
+                      className="updateLink"
+                      onClick={() => deleteContact(curContact._id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </>
   );
 };
 

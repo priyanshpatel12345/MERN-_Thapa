@@ -9,8 +9,6 @@ const connectDb = require("./utils/db");
 const port = 5000;
 const errorMiddleware = require("./middleware/error-middleware");
 const serviceRouter = require("./router/service-router");
-const helmet = require("helmet");
-const ExpressMongoSanitize = require("express-mongo-sanitize");
 
 // let's track cors
 const corsOptions = {
@@ -22,8 +20,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
-app.use(helmet());
-app.use(ExpressMongoSanitize());
 
 app.use("/", authRouter);
 

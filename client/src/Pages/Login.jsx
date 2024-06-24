@@ -11,7 +11,7 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const { storeTokenInLS } = useAuth();
+  const { storeTokenInLS, API } = useAuth();
 
   const handleInput = (e) => {
     let name = e.target.name;
@@ -31,7 +31,7 @@ function Login() {
     console.log(user);
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/login", {
+      const response = await fetch(`${API}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

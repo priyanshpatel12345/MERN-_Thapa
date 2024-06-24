@@ -10,7 +10,7 @@ function Contact() {
 
   const [userData, setUserData] = useState(true);
 
-  const { user } = useAuth();
+  const { user, API } = useAuth();
 
   if (userData && user) {
     setContact({
@@ -36,7 +36,7 @@ function Contact() {
     alert("Contact form send Successfully");
 
     try {
-      const response = await fetch("http://localhost:5000/Contact/form", {
+      const response = await fetch(`${API}/Contact/form`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
