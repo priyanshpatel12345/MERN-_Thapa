@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../store/auth";
 import "../index.css";
+import { toast } from "react-toastify";
 function Contact() {
   const [contact, setContact] = useState({
     username: "",
@@ -47,8 +48,10 @@ function Contact() {
       // console.log(response);
       if (response.ok) {
         setContact({ message: "" });
+        toast.success("message sent successfully")
       }
     } catch (error) {
+      toast.error("error while fetching contact");
       console.log("Error from contact", error);
     }
   };

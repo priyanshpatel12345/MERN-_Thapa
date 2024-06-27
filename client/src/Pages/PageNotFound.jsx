@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function PageNotFound() {
+  useEffect(()=>{
+     toast.error("Opps page not found!!!")
+  },[])
   return (
     <>
       <section id="error-page">

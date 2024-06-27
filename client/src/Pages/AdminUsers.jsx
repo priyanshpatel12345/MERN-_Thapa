@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAuth } from "../store/auth";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function AdminUsers() {
   const { authorizationToken, API } = useAuth();
@@ -20,6 +21,7 @@ function AdminUsers() {
       console.log(data);
       setUser(data);
     } catch (error) {
+      toast.error("something went wrong!!!!")
       console.log(error);
     }
   };

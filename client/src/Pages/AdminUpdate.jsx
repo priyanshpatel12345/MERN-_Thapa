@@ -26,6 +26,7 @@ export const AdminUpdate = () => {
       //   console.log(`users single data:  ${data}`);
       setData(data);
     } catch (error) {
+      toast.error("error while fetching admin data");
       console.log(error);
     }
   };

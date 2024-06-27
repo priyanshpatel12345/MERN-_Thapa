@@ -1,12 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import "../index.css";
 import { useAuth } from "../store/auth";
 import { useState } from "react";
 
 export const Navbar = () => {
-  const { isLoggedIn, user } = useAuth();
+  
+  const { isLoggedIn, user,LogoutUser } = useAuth();
   const [element, setElement] = useState("home");
+  const navigate = useNavigate();
   return (
     <>
       <header>
@@ -71,7 +73,10 @@ export const Navbar = () => {
 
                   {isLoggedIn ? (
                     <li>
-                      <NavLink to="/logout">Logout</NavLink>
+                      <NavLink onClick={()=>{
+                        LogoutUser();
+                        navigate("/login")
+                      }} >Logout</NavLink>
                     </li>
                   ) : (
                     <>
