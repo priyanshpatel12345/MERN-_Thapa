@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 function Logout() {
   const { LogoutUser } = useAuth();
@@ -8,8 +9,8 @@ function Logout() {
 
   useEffect(() => {
     LogoutUser();
-  }, [LogoutUser]);
-
+    console.log("Logged out")
+  }, []);
   return navigate("/login");
 }
 
