@@ -12,7 +12,7 @@ export const Navbar = () => {
       <header>
         <div className="container navbar">
           <div className={element === "admin" ? "active" : ""}>
-            <NavLink to="/">priyansh  </NavLink>
+            <NavLink to="/">priyansh </NavLink>
           </div>
 
           <nav>
@@ -26,29 +26,32 @@ export const Navbar = () => {
                     <NavLink to="/admin">Admin</NavLink>
                   </li>
 
-                  <li>
+                  <li className="hover:opacity-75">
                     <NavLink to="/">Home</NavLink>
                   </li>
-                  <li>
+                  <li className="hover:opacity-75">
                     <NavLink to="/about">About</NavLink>
                   </li>
-                  <li>
+                  <li className="hover:opacity-75">
                     <NavLink to="/contact">Contact</NavLink>
                   </li>
-                  <li>
+                  <li className="hover:opacity-75">
                     <NavLink to="/service">Service</NavLink>
+                  </li>
+                  <li className="hover:opacity-75">
+                    <NavLink to="/course">Course</NavLink>
                   </li>
 
                   {isLoggedIn ? (
-                    <li>
+                    <li className="hover:opacity-75">
                       <NavLink to="/logout">Logout</NavLink>
                     </li>
                   ) : (
                     <>
-                      <li>
+                      <li className="hover:opacity-75">
                         <NavLink to="/login">Login</NavLink>
                       </li>
-                      <li>
+                      <li className="hover:opacity-75">
                         <NavLink to="/signup">Signup</NavLink>
                       </li>
                     </>
@@ -56,29 +59,32 @@ export const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <li>
+                  <li className="hover:opacity-75">
                     <NavLink to="/">Home</NavLink>
                   </li>
-                  <li>
+                  <li className="hover:opacity-75">
                     <NavLink to="/about">About</NavLink>
                   </li>
-                  <li>
+                  <li className="hover:opacity-75">
                     <NavLink to="/contact">Contact</NavLink>
                   </li>
-                  <li>
+                  <li className="hover:opacity-75">
                     <NavLink to="/service">Service</NavLink>
+                  </li>
+                  <li className="hover:opacity-75">
+                    <NavLink to="/course">Course</NavLink>
                   </li>
 
                   {isLoggedIn ? (
-                    <li>
+                    <li className="hover:opacity-75">
                       <NavLink to="/logout">Logout</NavLink>
                     </li>
                   ) : (
                     <>
-                      <li>
+                      <li className="hover:opacity-75">
                         <NavLink to="/login">Login</NavLink>
                       </li>
-                      <li>
+                      <li className="hover:opacity-75">
                         <NavLink to="/signup">Signup</NavLink>
                       </li>
                     </>

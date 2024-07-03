@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     userAuthentication();
     getServices();
-  }, []);
+  }, [token]);
 
   return (
     <AuthContext.Provider

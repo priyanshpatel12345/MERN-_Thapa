@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 import "../index.css";
 function Contact() {
   const [contact, setContact] = useState({
@@ -33,7 +34,6 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Contact form send Successfully");
 
     try {
       const response = await fetch(`${API}/Contact/form`, {
@@ -47,6 +47,7 @@ function Contact() {
       // console.log(response);
       if (response.ok) {
         setContact({ message: "" });
+        toast.success("message sent Successfully");
       }
     } catch (error) {
       console.log("Error from contact", error);
@@ -76,6 +77,7 @@ function Contact() {
               <div>
                 <label htmlFor="username">username</label>
                 <input
+                  className="bg-gray-700 text-white p-4  w-full mb-4 rounded-lg"
                   type="text"
                   name="username"
                   id="username"
@@ -90,6 +92,7 @@ function Contact() {
               <div>
                 <label htmlFor="email">email</label>
                 <input
+                  className="bg-gray-700 text-white p-4  w-full mb-4 rounded-lg"
                   type="email"
                   name="email"
                   id="email"
@@ -104,6 +107,7 @@ function Contact() {
               <div>
                 <label htmlFor="message">message</label>
                 <textarea
+                  className="bg-gray-700 text-white p-4  w-full mb-4 rounded-lg"
                   name="message"
                   id="message"
                   cols="30"

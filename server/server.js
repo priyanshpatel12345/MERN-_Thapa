@@ -9,6 +9,7 @@ const connectDb = require("./utils/db");
 const port = 5000;
 const errorMiddleware = require("./middleware/error-middleware");
 const serviceRouter = require("./router/service-router");
+const courseRouter = require("./router/course-router");
 
 // let's track cors
 const corsOptions = {
@@ -28,6 +29,8 @@ app.use("/Contact", contactRouter);
 app.use("/form", serviceRouter);
 
 app.use("/admin", adminRouter);
+
+app.use("/study", courseRouter);
 
 app.use(errorMiddleware);
 

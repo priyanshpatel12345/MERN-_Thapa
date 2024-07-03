@@ -90,6 +90,7 @@ function Signup() {
                   autoComplete="false"
                   value={user.username}
                   onChange={handleInput}
+                  className="bg-gray-700 text-white p-4  w-full mb-4 rounded-lg"
                 />
               </div>
 
@@ -104,6 +105,7 @@ function Signup() {
                   autoComplete="false"
                   value={user.email}
                   onChange={handleInput}
+                  className="bg-gray-700 text-white p-4  w-full mb-4 rounded-lg"
                 />
               </div>
 
@@ -118,6 +120,7 @@ function Signup() {
                   autoComplete="false"
                   value={user.password}
                   onChange={handleInput}
+                  className="bg-gray-700 text-white p-4  w-full mb-4 rounded-lg"
                 />
               </div>
 
@@ -132,6 +135,7 @@ function Signup() {
                   autoComplete="false"
                   value={user.phone}
                   onChange={handleInput}
+                  className="bg-gray-700 text-white p-4  w-full mb-4 rounded-lg"
                 />
               </div>
 

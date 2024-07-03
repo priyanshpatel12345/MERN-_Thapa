@@ -33,4 +33,12 @@ router
     contactAdminController.deleteContactById
   );
 
+router.route("/courses").get(adminController.getAllCourses);
+
+router.route("/courses/:id").get(adminController.getCourseById);
+
+router.route("/courses/update/:id").patch(adminController.updateCourseById);
+
+router.route("/courses/delete/:id").delete(adminController.deleteCourseById);
+
 module.exports = router;

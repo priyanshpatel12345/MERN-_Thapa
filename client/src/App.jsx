@@ -14,6 +14,10 @@ import AdminLayout from "./Layouts/Admin-Layout";
 import AdminUsers from "./Pages/AdminUsers";
 import AdminContact from "./Pages/AdminContact";
 import { AdminUpdate } from "./Pages/AdminUpdate";
+import Course from "./Pages/Course";
+import AdminCreateCourse from "./Pages/AdminCreateCourse";
+import AdminCourses from "./Pages/AdminCourses";
+import AdminCourseUpdate from "./Pages/AdminCourseUpdate";
 
 function App() {
   return (
@@ -28,10 +32,14 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/course" element={<Course />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="users" element={<AdminUsers />} />
           <Route path="contact" element={<AdminContact />} />
           <Route path="users/:id" element={<AdminUpdate />} />
+          <Route path="createcourse" element={<AdminCreateCourse />} />
+          <Route path="courses" element={<AdminCourses />} />
+          <Route path="courses/:id" element={<AdminCourseUpdate />} />
         </Route>
       </Routes>
       <Footer />

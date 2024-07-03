@@ -88,6 +88,7 @@ function Login() {
                 autoComplete="false"
                 onChange={handleInput}
                 value={user.email}
+                className="bg-gray-700 text-white p-4  w-full mb-4 rounded-lg"
               />
             </div>
 
@@ -102,6 +103,7 @@ function Login() {
                 autoComplete="false"
                 onChange={handleInput}
                 value={user.password}
+                className="bg-gray-700 text-white p-4  w-full mb-4 rounded-lg"
               />
             </div>
 

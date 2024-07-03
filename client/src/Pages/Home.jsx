@@ -16,10 +16,14 @@ const Home = () => {
               </p>
               <div className="btn btn-group">
                 <a href="/contact">
-                  <button className="btn">connect now</button>
+                  <button className="text-black hover:opacity-75">
+                    connect now
+                  </button>
                 </a>
                 <a href="/services">
-                  <button className="btn secondary-btn">learn more</button>
+                  <button className="btn secondary-btn hover:opacity-55">
+                    learn more
+                  </button>
                 </a>
               </div>
             </div>
@@ -83,10 +87,14 @@ const Home = () => {
             </p>
             <div className="btn btn-group">
               <a href="/contact">
-                <button className="btn">connect now</button>
+                <button className="text-black hover:opacity-75">
+                  connect now
+                </button>
               </a>
               <a href="/services">
-                <button className="btn secondary-btn">learn more</button>
+                <button className="btn secondary-btn hover:opacity-55">
+                  learn more
+                </button>
               </a>
             </div>
           </div>
