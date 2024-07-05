@@ -16,7 +16,7 @@ const courseRouter = require("./router/course-router");
 // let's track cors
 const corsOptions = {
   origin: "*",
-  methods: ["GET, POST, PUT, DELETE, PATCH, HEAD"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true,
 };
 app.options("", cors(corsOptions));
