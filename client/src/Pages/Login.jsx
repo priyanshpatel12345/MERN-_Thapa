@@ -67,7 +67,7 @@ function Login() {
       <div className="login-content grid grid-two-cols">
         <div className="login-img">
           <img
-            src="/public/images/login.png"
+            src="/images/login.png"
             alt="login Image"
             width="450"
             height="450"
